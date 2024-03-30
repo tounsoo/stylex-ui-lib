@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 import styleX from "vite-plugin-stylex"
 import react from '@vitejs/plugin-react'
 import stylexPlugin from '@stylexjs/rollup-plugin'
+import dts from 'vite-plugin-dts'
 
 export default defineConfig(({command}) => {
   if (command === 'build') {
@@ -42,12 +43,12 @@ export default defineConfig(({command}) => {
               // The absolute path to the root directory of your project
               rootDir: __dirname,
             },
-          })],
+          }), dts()],
         },
       },
     }
   }
   return {
-    plugins: [react(), styleX()]
+    plugins: [react(), styleX(), dts()]
   }
 })
