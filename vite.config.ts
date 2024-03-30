@@ -10,24 +10,28 @@ export default defineConfig(({command}) => {
   if (command === 'build') {
     return {
       build: {
-        lib: {
-          // Could also be a dictionary or array of multiple entry points
-          entry: resolve(__dirname, 'src/index.ts'),
-          name: 'stylex-ui-lib',
-          // the proper extensions will be added
-          fileName: 'index',
-        },
+        minify: false,
         rollupOptions: {
           // make sure to externalize deps that shouldn't be bundled
           // into your library
+          input: './src/index.ts',
           external: ['react'],
-          output: {
-            // Provide global variables to use in the UMD build
-            // for externalized deps
-            globals: {
-              react: 'React',
-            },
-          },
+          preserveEntrySignatures: 'strict',
+          output: [{
+            preserveModules: true,
+            preserveModulesRoot: 'src',
+            dir: resolve('./dist'),
+            format: 'cjs',
+            entryFileNames: `[name].cjs`, 
+            chunkFileNames: `[name].cjs`,
+          },{
+            preserveModules: true,
+            preserveModulesRoot: 'src',
+            dir: resolve('./dist'),
+            format: "es",
+            entryFileNames: `[name].js`, 
+            chunkFileNames: `[name].js`,
+          }],
           plugins: [stylexPlugin({
             // Required. File path for the generated CSS file.
             fileName: 'stylex.css',
@@ -43,12 +47,12 @@ export default defineConfig(({command}) => {
               // The absolute path to the root directory of your project
               rootDir: __dirname,
             },
-          }), dts()],
+          }), dts({insertTypesEntry: true})],
         },
       },
     }
   }
   return {
-    plugins: [react(), styleX(), dts()]
+    plugins: [react(), styleX(), dts({insertTypesEntry: true})]
   }
 })
