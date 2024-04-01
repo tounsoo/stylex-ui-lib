@@ -1,4 +1,4 @@
-import {color, spacing, background} from '../../token/core.stylex'
+import {color, spacing, background} from '../../token/global.stylex'
 import * as stylex from '@stylexjs/stylex';
 
 // A constant can be used to avoid repeating the media query

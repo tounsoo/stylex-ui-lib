@@ -1,5 +1,14 @@
 import * as stylex from '@stylexjs/stylex';
 
+// A constant can be used to avoid repeating the media query
+export const DARK = '@media (prefers-color-scheme: dark)';
+
+export const breakpoint = stylex.defineVars({
+  mobile: '@media (min-width: 640px)',
+  laptop: '@media (min-width: 1024px)',
+  desktop: '@media (min-width: 1280px)',
+});
+
 export const spacing = stylex.defineVars({
     none: '0px',
     xsmall: '4px',
@@ -11,8 +20,6 @@ export const spacing = stylex.defineVars({
     xxxlarge: '96px',
   });
 
-// A constant can be used to avoid repeating the media query
-const DARK = '@media (prefers-color-scheme: dark)';
 
 export const color = stylex.defineVars({
   primary: {default: 'black', [DARK]: 'white'},
