@@ -2,14 +2,13 @@
 
 import { ComponentPropsWithoutRef, forwardRef } from "react";
 import * as stylex from '@stylexjs/stylex';
-import type {StyleXStylesWithout, Theme} from '@stylexjs/stylex';
+import type { Theme } from '@stylexjs/stylex';
 import { buttonTokens } from "./Button.stylex";
+import { layoutStyleX } from "../../types/stylex";
 
 export type ButtonProps = Omit<ComponentPropsWithoutRef<'button'>, 'style'> & {
-    variant?: 'default' | 'primary';
-    // example of how to disallow certain styles
-    style?: StyleXStylesWithout<{ padding: unknown }>;
-    // example of how to use override style on component level
+    variant?: 'default' | 'cta' | 'destructive';
+    style?: layoutStyleX;
     theme?: Theme<typeof buttonTokens>;
 }
 ``
@@ -20,20 +19,27 @@ export const ButtonStyles = stylex.create({
       fontSize: buttonTokens.baseFontSize,
       padding: buttonTokens.basePadding,
       boxSizing: buttonTokens.basePadding,
-    },
-    default: {
+      borderRadius: buttonTokens.baseBorderRadius,
       backgroundColor: {
         default: buttonTokens.defaultBackgroundColor,
         ':hover': buttonTokens.defaultBackgroundColorHover,
       },
       color: buttonTokens.defaultColor,
     },
-    primary: {
+    default: {},
+    cta: {
       backgroundColor: {
-        default: buttonTokens.primaryBackgroundColor,
-        ':hover': buttonTokens.primaryBackgroundColorHover,
+        default: buttonTokens.ctaBackgroundColor,
+        ':hover': buttonTokens.ctaBackgroundColorHover,
       },
-      color: buttonTokens.primaryColor
+      color: buttonTokens.ctaColor
+    },
+    destructive: {
+      backgroundColor: {
+        default: buttonTokens.destructiveBackgroundColor,
+        ':hover': buttonTokens.destructiveBackgroundColorHover,
+      },
+      color: buttonTokens.destructiveColor
     },
   });
   

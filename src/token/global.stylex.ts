@@ -1,35 +1,71 @@
 import * as stylex from '@stylexjs/stylex';
+import { palette } from './palette.stylex';
+import { layout } from './layout.stylex';
 
-// A constant can be used to avoid repeating the media query
+// media queries
 export const DARK = '@media (prefers-color-scheme: dark)';
-
-export const breakpoint = stylex.defineVars({
-  mobile: '@media (min-width: 640px)',
-  laptop: '@media (min-width: 1024px)',
-  desktop: '@media (min-width: 1280px)',
-});
+export const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
+export const MOBILE = '@media (min-width: 640px)'
+export const LAPTOP = '@media (min-width: 1024px)'
+export const DESKTOP = '@media (min-width: 1280px)'
 
 export const spacing = stylex.defineVars({
-    none: '0px',
-    xsmall: '4px',
-    small: '8px',
-    medium: '12px',
-    large: '20px',
-    xlarge: '32px',
-    xxlarge: '48px',
-    xxxlarge: '96px',
-  });
-
+  /** 0 */
+  none: '0',
+  /** layout.size75 */
+  xsmall: layout.size75,
+  /** layout.size100 */
+  small: layout.size100,
+  /** layout.size75 */
+  medium: layout.size200,
+  /** layout.size75 */
+  large: layout.size300,
+  /** layout.size75 */
+  xlarge: layout.size400,
+  /** layout.size75 */
+  xxlarge: layout.size500,
+  /** layout.size75 */
+  xxxlarge: layout.size700,
+  /** layout.size75 */
+  huge: layout.size1000,
+});
+  
+export const corner = stylex.defineVars({
+  /** 0 */
+  square: '0',
+  /** layout.size100 */
+  round: layout.size100,
+  /** layout.size200 */
+  rounder: layout.size200,
+  /** 500px */
+  pill: '500px',
+  /** 100% */
+  circular: '100%'
+});
 
 export const color = stylex.defineVars({
-  primary: {default: 'black', [DARK]: 'white'},
-  secondary: {default: '#333', [DARK]: '#ccc'},
-  onPrimary: {default: 'white', [DARK]: 'black'},
-  onSecondary: {default: 'black', [DARK]: 'white'},
+  // primary: {default: palette.gray800, [DARK]: palette.gray200},
+  /** palette.gray800 */
+  primary: {default: palette.gray800},
+  /** palette.gray50 */
+  onPrimary: {default: palette.gray50},
+  /** palette.gray600 */
+  secondary: {default: palette.gray600},
+  /** palette.gray800 */
+  onSecondary: {default: palette.gray800},
+  /** palette.red800 */
+  danger: {default: palette.red800},
+  /** palette.gray50 */
+  onDanger: {default: palette.gray50},
 });
 
 export const background = stylex.defineVars({
-  default: {default: 'white', [DARK]: 'black'},
-  primary: {default: 'black', [DARK]: 'white'},
-  secondary: {default: '#ececec', [DARK]: '#333'},
+  /** palette.gray50 */
+  default: {default: palette.gray50},
+  /** palette.gray800 */
+  primary: {default: palette.gray800},
+  /** palette.gray200 */
+  secondary: {default: palette.gray200},
+  /** palette.red800 */
+  danger: {default: palette.red800},
 });
