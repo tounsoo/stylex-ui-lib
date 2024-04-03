@@ -8,9 +8,6 @@ import { buttonTokens } from "./Button.stylex";
 const meta: Meta<typeof Button> = {
   title: "Example/Button",
   component: Button,
-  parameters: {
-    layout: "centered",
-  },
   tags: ["autodocs"],
   args: { onClick: fn() },
 };
@@ -27,13 +24,16 @@ export const Primary: Story = {
 
 const customStyle = stylex.create({
   test: {
-    minWidth: "500px",
+    width: {
+      default: '200px',
+      '@media (min-width: 640px)': '100px'
+    }
   },
 });
 
 export const OverrideStyle: Story = {
   render: () => {
-    return <Button style={customStyle.test} >Custom Style</Button>;
+    return <Button style={customStyle.test} >Custom</Button>;
   },
 };
 

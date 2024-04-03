@@ -3,11 +3,11 @@ import { palette } from './palette.stylex';
 import { layout } from './layout.stylex';
 
 // media queries
-export const DARK = '@media (prefers-color-scheme: dark)';
-export const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
-export const MOBILE = '@media (min-width: 640px)'
-export const LAPTOP = '@media (min-width: 1024px)'
-export const DESKTOP = '@media (min-width: 1280px)'
+// export const DARK = '@media (prefers-color-scheme: dark)';
+// export const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
+// export const MOBILE = '@media (min-width: 640px)'
+// export const LAPTOP = '@media (min-width: 1024px)'
+// export const DESKTOP = '@media (min-width: 1280px)'
 
 export const spacing = stylex.defineVars({
   /** 0 */
