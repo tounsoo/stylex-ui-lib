@@ -4,14 +4,14 @@ import { ComponentPropsWithoutRef, forwardRef } from "react";
 import * as stylex from '@stylexjs/stylex';
 import type { Theme } from '@stylexjs/stylex';
 import { buttonTokens } from "./Button.stylex";
-import { layoutStyleX } from "../../types/stylex";
+import { Layout, Sizing, Positioning } from "../../types/stylex";
 
 export type ButtonProps = Omit<ComponentPropsWithoutRef<'button'>, 'style'> & {
     variant?: 'default' | 'cta' | 'destructive';
-    style?: layoutStyleX;
+    style?: Layout | Sizing | Positioning;
     theme?: Theme<typeof buttonTokens>;
 }
-``
+
 export const ButtonStyles = stylex.create({
     base: {
       border: buttonTokens.baseBorder,
@@ -20,13 +20,14 @@ export const ButtonStyles = stylex.create({
       padding: buttonTokens.basePadding,
       boxSizing: buttonTokens.basePadding,
       borderRadius: buttonTokens.baseBorderRadius,
+    },
+    default: {
       backgroundColor: {
         default: buttonTokens.defaultBackgroundColor,
         ':hover': buttonTokens.defaultBackgroundColorHover,
       },
       color: buttonTokens.defaultColor,
     },
-    default: {},
     cta: {
       backgroundColor: {
         default: buttonTokens.ctaBackgroundColor,

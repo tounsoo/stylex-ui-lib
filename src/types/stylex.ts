@@ -1,38 +1,53 @@
 import type {StyleXStyles} from '@stylexjs/stylex';
 
-export type layoutStyleX = StyleXStyles<{
+export type Layout = StyleXStyles<{
     flex?: string;
-    flexBasis?: string;
-    flexDirection?: string;
-    flexFlow?: string;
     flexGrow?: string;
     flexShrink?: string;
-    flexWrap?: string;
-    grid?: string;
+    flexBasis?: string;
+    order?: string;
+
     gridArea?: string;
-    gridAutoColumns?: string;
-    gridAutoFlow?: string;
-    gridAutoRows?: string;
     gridColumn?: string;
-    gridColumnEnd?: string;
-    gridColumnGap?: string;
-    gridColumnStart?: string;
     gridRow?: string;
-    gridRowEnd?: string;
-    gridRowGap?: string;
+    gridColumnStart?: string;
+    gridColumnEnd?: string;
     gridRowStart?: string;
-    justifyContent?: string;
-    justifyItems?: string;
-    justifySelf?: string;
-    alignContent?: string;
-    alignItems?: string;
+    gridRowEnd?: string;
+    gridAutoColumns?: string;
+    gridAutoRows?: string;
+
     alignSelf?: string;
+    justifySelf?: string;
+    placeSelf?: string;
+    alignContent?: string;
+    justifyContent?: string;
     placeContent?: string;
+    alignItems?: string;
+    justifyItems?: string;
     placeItems?: string;
+
+    gap?: string;
+    columnGap?: string;
+    rowGap?: string;
+}>
+
+export type Sizing = StyleXStyles<{
     width?: string;
     minWidth?: string;
     maxWidth?: string;
     height?: string;
     minHeight?: string;
     maxHeight?: string;
+}>
+
+export type Positioning = StyleXStyles<{
+    position?: string;
+    top?: string;
+    bottom?: string;
+    left?: string;
+    right?: string;
+    start?: string;
+    end?: string;
+    zIndex?: string;
 }>
